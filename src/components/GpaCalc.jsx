@@ -48,7 +48,7 @@ const GpaCalc = () => {
   }
 
   return (
-    <Box minH="100vh" p={6}>
+    <Box p={6}>
       <Heading textAlign="center" mb={6}>
         GPA Calculator
       </Heading>

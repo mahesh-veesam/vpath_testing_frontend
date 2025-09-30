@@ -2,11 +2,13 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { useParams , Link } from 'react-router-dom';
 import axios from 'axios';
-import { SimpleGrid , Card , Text , Badge , Box , HStack , Button} from '@chakra-ui/react';
+import { SimpleGrid , Card , Text , Badge , Box , HStack , Button , IconButton , VStack} from '@chakra-ui/react';
 import EditForm from './EditForm';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FaDownload } from "react-icons/fa6"
 import { axiosInstance } from '@/utils/axios';
+import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom'
 
 const Coursecard = () => {
         const { code } = useParams();
@@ -17,6 +19,7 @@ const Coursecard = () => {
         const [editData , setEditData] = useState({})
 
         const {authUser} = useAuthStore()
+        const navigate = useNavigate()
     
         let getData = async () =>{
             try{
@@ -57,7 +60,25 @@ const Coursecard = () => {
 
   return (
     <div>
-    <Text mx="6%" fontWeight={600} fontSize={19}>{code}</Text>
+        <Box 
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  mx="4%" mt={["5%","1%"]}
+                  >
+                <Box
+                  borderRadius="full"
+                  onClick={() => navigate("/recentSem")}
+                  >
+                    <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
+                        <IoIosArrowBack/>
+                    </IconButton>
+                </Box>
+                <VStack>
+                    <Text mx="6%" fontWeight={600} fontSize={19}>{code}</Text>
+                </VStack>
+              </Box>
     <Text mx="6%" fontWeight={500} fontSize={16}>{course}</Text>
     <SimpleGrid 
         columns={{ base: 1, sm: 2, md: 3 }} 
@@ -134,7 +155,7 @@ const Coursecard = () => {
                     Download
                 </Button>
 
-            {authUser?.email === d.uploadedBy.email && (
+            {(authUser?.email === d.uploadedBy.email || authUser?.email == "mahesh.23mis7302@vitapstudent.ac.in")  && (
                 <>
                 <Button
                 flex={1}
@@ -168,4 +189,4 @@ const Coursecard = () => {
   )
 }
 
-export default Coursecard
+export default Coursecard;

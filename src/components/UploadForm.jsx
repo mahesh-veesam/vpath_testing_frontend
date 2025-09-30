@@ -4,6 +4,8 @@ import { LuUpload } from "react-icons/lu"
 import Toggle from './Toggle'
 import axios from 'axios'
 import { axiosInstance } from '@/utils/axios'
+import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom'
 
 export default function UploadForm() {
     const [formData, setFormData] = useState({
@@ -14,6 +16,8 @@ export default function UploadForm() {
         date: '',
         images: []
     })
+
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         const { name, type, value, files } = e.target;
@@ -72,7 +76,25 @@ export default function UploadForm() {
 
   return (
     <div>
-    <Text mx="12%" mt={["5%","1%"]} fontWeight={600} fontSize={19}>Upload Question Paper</Text>
+    <Box 
+          display="flex"
+          flexDirection="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          mx="10%" mt={["5%","1%"]}
+          >
+        <Box
+          borderRadius="full"
+          onClick={() => navigate("/recentSem")}
+          >
+            <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
+                <IoIosArrowBack/>
+            </IconButton>
+        </Box>
+        <HStack>
+          <Text fontSize={19} fontWeight={600}>Upload Question Paper</Text>
+        </HStack>
+      </Box>
     <form onSubmit={handleSubmit} encType="multipart/form-data">
     <Stack gap="1" mx={["7%","10%"]} my="2%">
                 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={1}>
@@ -189,9 +211,9 @@ export default function UploadForm() {
                     </Box> 
                 </SimpleGrid>
                 <SimpleGrid columns={{ base: 1, lg: 1 }} maxW="100px" spacing={1} m="3" > 
-                <IconButton variant="subtle" borderWidth="1px" borderRadius="26px" px={3} aria-label="Home" size="md" maxW="sm" type="submit" isDisabled={isUploading}>
-                    {isUploading && <Spinner size="xs" /> }
+                <IconButton variant="subtle" borderWidth="1px" borderRadius="16px" px={3} aria-label="Home" size="md" maxW="md" type="submit" isDisabled={isUploading}>  
                     {!isUploading ? <Text fontSize={14} ml={1}>Upload</Text> : <Text fontSize={14} ml={1}>Uploading</Text>}
+                    {isUploading && <Spinner size="xs" /> }
                 </IconButton>
                 </SimpleGrid>
         </Stack>

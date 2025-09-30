@@ -51,7 +51,7 @@ const CgpaCalc = () => {
   }
 
   return (
-    <Box minH="100vh" p={6}>
+    <Box p={6}>
       <Heading textAlign="center" mb={6}>
         CGPA Calculator
       </Heading>
@@ -104,7 +104,7 @@ const CgpaCalc = () => {
         </HStack>
 
         {cgpa && (
-          <>
+          <Box mt={5}>
             <Text
               fontSize="2xl"
               fontWeight="bold"
@@ -115,7 +115,7 @@ const CgpaCalc = () => {
             <Text fontSize="lg" fontWeight="medium" color="gray.300">
               Total Credits Completed: {totalCredits}
             </Text>
-          </>
+          </Box>
         )}
       </VStack>
     </Box>
