@@ -1,4 +1,4 @@
-import { Field, Input, Stack,SimpleGrid,Box,HStack, Portal, Select,createListCollection,FileUpload, Icon , Button , Text} from '@chakra-ui/react'
+import { Field, Input, Stack,SimpleGrid,Box,HStack, Portal, Select,createListCollection,FileUpload, Icon , IconButton , Text , Spinner} from '@chakra-ui/react'
 import { useState } from 'react'
 import { LuUpload } from "react-icons/lu"
 import Toggle from './Toggle'
@@ -6,25 +6,30 @@ import axios from 'axios'
 import { axiosInstance } from '@/utils/axios'
 
 export default function UploadForm() {
-  const [formData, setFormData] = useState({
-    code: '',
-    title: '',
-    slot: '',
-    examType : '',
-    date: '',
-    images: []
-  })
+    const [formData, setFormData] = useState({
+        code: '',
+        title: '',
+        slot: '',
+        examType : '',
+        date: '',
+        images: []
+    })
 
     const handleChange = (e) => {
-    const { name, type, value, files } = e.target;
+        const { name, type, value, files } = e.target;
 
-    setFormData((prev) => ({  ...prev, [name]: type === "file" ? Array.from(files) : value }));
+        setFormData((prev) => ({  ...prev, [name]: type === "file" ? Array.from(files) : value }));
     };
+
+    const [isUploading , setIsUploading] = useState(false);
 
 
  const handleSubmit = async (e) => {
+  if(isUploading) return;
+
   e.preventDefault();
- 
+  setIsUploading(true) 
+
   // Create FormData object
   const data = new FormData();
   data.append('code', formData.code);
@@ -59,7 +64,10 @@ export default function UploadForm() {
 
   } catch (error) {
     console.error('Upload failed:', error);
+  } finally {
+    setIsUploading(false) 
   }
+
 };
 
   return (
@@ -181,7 +189,10 @@ export default function UploadForm() {
                     </Box> 
                 </SimpleGrid>
                 <SimpleGrid columns={{ base: 1, lg: 1 }} maxW="100px" spacing={1} m="3" > 
-                    <Button variant="subtle" size="md" maxW="sm" type='submit'>Upload</Button>
+                <IconButton variant="subtle" borderWidth="1px" borderRadius="26px" px={3} aria-label="Home" size="md" maxW="sm" type="submit" isDisabled={isUploading}>
+                    {isUploading && <Spinner size="xs" /> }
+                    {!isUploading ? <Text fontSize={14} ml={1}>Upload</Text> : <Text fontSize={14} ml={1}>Uploading</Text>}
+                </IconButton>
                 </SimpleGrid>
         </Stack>
     </form>
