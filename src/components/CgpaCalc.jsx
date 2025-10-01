@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react"
 
 const CgpaCalc = () => {
-  const [courses, setCourses] = useState([{ credits: "", grade: "" }])
+  const [courses, setCourses] = useState([{ credits: "", grade: "" },{ credits: "", grade: "" }])
   const [cgpa, setCgpa] = useState(null)
   const [totalCredits, setTotalCredits] = useState(0)
 

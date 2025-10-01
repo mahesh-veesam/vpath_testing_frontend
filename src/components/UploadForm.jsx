@@ -77,24 +77,24 @@ export default function UploadForm() {
   return (
     <div>
     <Box 
-          display="flex"
-          flexDirection="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          mx="10%" mt={["5%","1%"]}
-          >
-        <Box
-          borderRadius="full"
-          onClick={() => navigate("/recentSem")}
-          >
-            <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
-                <IoIosArrowBack/>
-            </IconButton>
-        </Box>
-        <HStack>
-          <Text fontSize={19} fontWeight={600}>Upload Question Paper</Text>
-        </HStack>
-      </Box>
+        display="flex"
+        flexDirection="row"
+        justifyContent="flex-start"
+        alignItems="center"
+        mx={["5%","9%"]} mt={["0%","1%"]}
+        >
+    <Box
+        borderRadius="full"
+        onClick={() => navigate("/recentSem")}
+        >
+        <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
+            <IoIosArrowBack/>
+        </IconButton>
+    </Box>
+    <HStack>
+        <Text fontSize={19} fontWeight={600}>Upload Question Paper</Text>
+    </HStack>
+    </Box>
     <form onSubmit={handleSubmit} encType="multipart/form-data">
     <Stack gap="1" mx={["7%","10%"]} my="2%">
                 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={1}>

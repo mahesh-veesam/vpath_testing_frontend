@@ -61,24 +61,24 @@ const Coursecard = () => {
   return (
     <div>
         <Box 
-                  display="flex"
-                  flexDirection="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  mx="4%" mt={["5%","1%"]}
-                  >
-                <Box
-                  borderRadius="full"
-                  onClick={() => navigate("/recentSem")}
-                  >
-                    <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
-                        <IoIosArrowBack/>
-                    </IconButton>
-                </Box>
-                <VStack>
-                    <Text mx="6%" fontWeight={600} fontSize={19}>{code}</Text>
-                </VStack>
-              </Box>
+            display="flex"
+            flexDirection="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            mx={["1%","5%"]} mt={["0%","1%"]}
+            >
+            <Box
+                borderRadius="full"
+                onClick={() => navigate("/recentSem")}
+                >
+                <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="lg" fontSize="20px">
+                    <IoIosArrowBack/>
+                </IconButton>
+            </Box>
+            <VStack>
+                <Text fontWeight={600} fontSize={19}>{code}</Text>
+            </VStack>
+        </Box>
     <Text mx="6%" fontWeight={500} fontSize={16}>{course}</Text>
     <SimpleGrid 
         columns={{ base: 1, sm: 2, md: 3 }} 

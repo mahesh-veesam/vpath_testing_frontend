@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react"
 
 const GpaCalc = () => {
-  const [courses, setCourses] = useState([{ credits: "", grade: "" }])
+  const [courses, setCourses] = useState([{ credits: "", grade: "" },{ credits: "", grade: "" },{ credits: "", grade: "" },{ credits: "", grade: "" },{ credits: "", grade: "" },{ credits: "", grade: "" }])
   const [gpa, setGpa] = useState(null)
 
   // Add a new course row
