@@ -86,13 +86,14 @@ export default function UploadForm() {
     <Box
         borderRadius="full"
         onClick={() => navigate("/recentSem")}
+        mr={-2}
         >
         <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="xl" fontSize="20px">
             <IoIosArrowBack/>
         </IconButton>
     </Box>
     <HStack>
-        <Text fontSize={19} fontWeight={600}>Upload Question Paper</Text>
+        <Text fontSize={19} fontWeight={600} zIndex={100}>Upload Question Paper</Text>
     </HStack>
     </Box>
     <form onSubmit={handleSubmit} encType="multipart/form-data">

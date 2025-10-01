@@ -69,18 +69,19 @@ const Coursecard = () => {
             flexDirection="row"
             justifyContent="flex-start"
             alignItems="center"
-            mx={["1%","5%"]} mt={["0%","1%"]}
+            mx={["1%","4.5%"]} mt={["0%","1%"]}
             >
             <Box
                 borderRadius="full"
                 onClick={() => navigate("/recentSem")}
+                mr={-2}
                 >
-                <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="lg" fontSize="20px">
+                <IconButton variant="ghost" borderRadius="26px" aria-label="Home" size="lg" fontSize="20px" pt={0.5}>
                     <IoIosArrowBack/>
                 </IconButton>
             </Box>
             <VStack>
-                <Text fontWeight={600} fontSize={19}>{code}</Text>
+                <Text fontWeight={600} fontSize={19} zIndex={100}>{code}</Text>
             </VStack>
         </Box>
     <Text mx="6%" fontWeight={500} fontSize={16}>{course}</Text>
