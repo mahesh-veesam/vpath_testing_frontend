@@ -210,8 +210,8 @@ export default function UploadForm() {
                         </FileUpload.Root>
                     </Box> 
                 </SimpleGrid>
-                <SimpleGrid columns={{ base: 1, lg: 1 }} maxW="100px" spacing={1} m="3" > 
-                <IconButton variant="subtle" borderWidth="1px" borderRadius="16px" px={3} aria-label="Home" size="md" maxW="md" type="submit" isDisabled={isUploading}>  
+                <SimpleGrid columns={{ base: 1, lg: 1 }} maxW="120px" spacing={1} m="3" > 
+                <IconButton variant="subtle" borderWidth="1px" borderRadius="16px" px={3} aria-label="Home" size="md" type="submit" isDisabled={isUploading}>  
                     {!isUploading ? <Text fontSize={14} ml={1}>Upload</Text> : <Text fontSize={14} ml={1}>Uploading</Text>}
                     {isUploading && <Spinner size="xs" /> }
                 </IconButton>

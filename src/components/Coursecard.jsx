@@ -17,6 +17,7 @@ const Coursecard = () => {
         const [course , setCourse] = useState()
         const [editForm , setEditForm] = useState(false)
         const [editData , setEditData] = useState({})
+        const [isDeleting , setIsDeleting] = useState(false)
 
         const {authUser} = useAuthStore()
         const navigate = useNavigate()
@@ -54,8 +55,11 @@ const Coursecard = () => {
         };
 
         let handleDelete = async (e)=>{
+            if(isDeleting) return;
+            setIsDeleting(true)
             console.log(e)
             let res = await axiosInstance.delete(`courses/delete/${e}`)
+            setIsDeleting(false)
         }
 
   return (
@@ -172,7 +176,7 @@ const Coursecard = () => {
                 variant="subtle"
                 onClick={() => handleDelete(d._id) }
                 >
-                    Delete
+                    {!isDeleting ? "Delete" : "Deleting"}
                 </Button>
                 </> 
                 ) }
