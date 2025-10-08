@@ -37,6 +37,44 @@ const Courses = () => {
                 </Flex>    
             </Box>
         </Flex>
+             {/* <SimpleGrid columns={{ base: 1, sm : 2,  md: 3 }} spacing={1} mx="5%" my="2%">
+            {data
+                .filter((d) => {
+                    const courseDate = new Date(d.createdAt); // or d.dateAdded
+                    const twoWeeksAgo = new Date();
+                    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+
+                    return (
+                    (d._id.toLowerCase().includes(searchCourse.toLowerCase()) ||
+                    d.title.toLowerCase().includes(searchCourse.toLowerCase())) &&
+                    courseDate >= twoWeeksAgo
+                    );
+                })
+                .map((d) => (
+                    <Card.Root
+                    size="sm"
+                    m="2"
+                    key={d._id}
+                    _hover={{
+                        bg: "gray.800",
+                        color: "white",
+                        cursor: "pointer",
+                        transform: "scale(1.05)",
+                        transition: "all 0.5s",
+                    }}
+                    >
+                    <Link to={`course/${d._id}`}>
+                        <Card.Header>
+                        <HStack>
+                            <IoIosPaper />
+                            <Heading size="md">{d._id}</Heading>
+                        </HStack>
+                        </Card.Header>
+                        <Card.Body color="fg.muted">{d.title}</Card.Body>
+                    </Link>
+                    </Card.Root>
+                ))}
+            </SimpleGrid> */}
             <SimpleGrid columns={{ base: 1, sm : 2,  md: 3 }} spacing={1} mx="5%" my="2%">
                 {data
                 .filter((d)=>(
