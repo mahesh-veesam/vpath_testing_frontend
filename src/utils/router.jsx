@@ -26,6 +26,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <Navigate to="/pyqs/freshers" replace /> },
           { path: ":batch", element: <PyqsPage/> },
+           { path : "*", element : <Navigate to="/pyqs" replace/>}
         ]
       },
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
               { path: "edit", element: <EditForm /> }
             ]
           },
-        //   { path : "*", element : <Navigate to="/recentSem" replace/>}
+          { path : "*", element : <Navigate to="/recentSem" replace/>}
         ]
       },
       
