@@ -34,7 +34,7 @@ export const useAuthStore = create((set, get) => ({
       console.log("working")
       window.location.href = "https://vpath-testing.onrender.com/auth/google";
     } catch (error) {
-      toast.error(error);
+      toast.error(error?.message || "Use College mail id to login");
     } finally {
       set({ isLoggingIn: false });
     }

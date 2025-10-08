@@ -2,7 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { useParams , Link } from 'react-router-dom';
 import axios from 'axios';
-import { SimpleGrid , Card , Text , Badge , Box , HStack , Button , IconButton , VStack} from '@chakra-ui/react';
+import { SimpleGrid , Card , Text , Badge , Box , HStack , Button , IconButton , VStack , Spinner , Flex} from '@chakra-ui/react';
 import EditForm from './EditForm';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FaDownload } from "react-icons/fa6"
@@ -11,6 +11,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
 
 const Coursecard = () => {
+        const navigate = useNavigate()
         const { code } = useParams();
         const [data,setData] = useState([])
         const [loading,setLoading] = useState(false)
@@ -20,7 +21,6 @@ const Coursecard = () => {
         const [isDeleting , setIsDeleting] = useState(false)
 
         const {authUser} = useAuthStore()
-        const navigate = useNavigate()
     
         let getData = async () =>{
             try{
@@ -62,6 +62,17 @@ const Coursecard = () => {
             setIsDeleting(false)
         }
 
+    if (loading) 
+    return (
+        <Flex 
+            justify="center" 
+            align="center" 
+            height="100vh" // full viewport height
+        >
+        <Spinner size="xl" />
+        </Flex>
+    );
+
   return (
     <div>
         <Box 
@@ -92,7 +103,7 @@ const Coursecard = () => {
         mx="5%" 
         my={["3%","1%"]}
         >
-        {data.map((d) => (
+        {[...data].reverse().map((d) => (
             <Card.Root
             key={d._id}
             size="sm"
