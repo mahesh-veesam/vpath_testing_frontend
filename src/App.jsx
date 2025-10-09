@@ -1,14 +1,23 @@
 import { useState,useEffect } from 'react'
 import Navbar from './components/Navbar'
-import {  Outlet } from 'react-router-dom'
+import { useLocation , Outlet } from 'react-router-dom'
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
-
+import { initGA , logPageView } from "./analytics/ga";
 import { useAuthStore } from "./store/useAuthStore";
 import { Box } from '@chakra-ui/react';
 
 function App() {  
   const {checkAuth ,authUser, setAuthUser} = useAuthStore();
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA();
+  }, []);
+  
+  useEffect(() => {
+    logPageView(location.pathname + location.search);
+  }, [location]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
