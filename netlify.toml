@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/*"
-  to = "/"
-  status = 301
+  from = "/pyqs/*"
+  to = "/index.html"
+  status = 200
