@@ -1,4 +1,13 @@
+# Specific redirect for /pyqs/*
+[[redirects]]
+  from = "/pyqs/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+# Catch-all redirect for the rest of the SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
