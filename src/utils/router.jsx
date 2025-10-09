@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <Navigate to="/pyqs/freshers" replace /> },
           { path: ":batch", element: <PyqsPage/> },
-           { path : "*", element : <Navigate to="/pyqs" replace/>}
+          { path : "*", element : <Navigate to="/pyqs" replace/>}
         ]
       },
 
