@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from '@/components/SelectPyq'
 import {Flex} from '@chakra-ui/react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate , Outlet } from 'react-router-dom'
 
 const PyqsPage = () => {
   const { batch } = useParams();
@@ -10,6 +10,7 @@ const PyqsPage = () => {
     <div>
       <Flex justify="center" fontWeight="600" fontSize={20} mt={1}>Question Papers</Flex>
       <Select batch={batch}/>
+      <Outlet/>
     </div>  
   )
 }
