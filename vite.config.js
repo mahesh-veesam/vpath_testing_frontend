@@ -15,5 +15,5 @@ export default defineConfig({
     host: true, // ← Allow external access
     port: 5173  // ← Or any port you prefer
   },
-  base : "./",
+  base : "/",
 })
